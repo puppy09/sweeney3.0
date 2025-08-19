@@ -11,5 +11,6 @@ router.post("/auth/registro", registro);
 
 //Rutas de Categorias
 router.post("/add/categoria",checkJWT, postCategoria);
+router.put("/upd/categoria/:id_categoria",checkJWT, postCategoria);
 
 export { router };

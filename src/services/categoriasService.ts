@@ -14,3 +14,15 @@ export const createCategoria = async(nombre: string, presupuesto: number, ID_Usu
     }
     return nuevaCategoria;
 }
+
+export const updateCategoria = async(id_categoria: number, categoria: string, presupuesto: number, estatus: number) => {
+    const categoriaActualizada = await categorias.update(
+        { categoria, presupuesto, estatus },
+        { where: { ID_Categoria: id_categoria } }
+    );
+
+    if (!categoriaActualizada) {
+        return null;
+    }
+    return categoriaActualizada;
+}
