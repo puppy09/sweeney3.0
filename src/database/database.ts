@@ -1,6 +1,5 @@
 import {Sequelize} from "sequelize";
 import dotenv from 'dotenv';
-import { Console } from "console";
 dotenv.config();
 
 const sequelize = new Sequelize(
@@ -27,6 +26,4 @@ const checkConnection = async() => {
     }
 }
 
-console.log("modelos de sequelize");
-console.log(sequelize.models);
 export{sequelize, checkConnection};

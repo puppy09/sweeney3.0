@@ -7,9 +7,9 @@ dotenv.config
 
 export const login = async(req:Request, res:Response)=>{
     try{
-        const {email, contra} = req.body;
+        const {correo, contra} = req.body;
 
-   const usuario = await userService.findUser(email, contra);
+   const usuario = await userService.findUser(correo, contra);
     if(!usuario){
         return res.status(401).json({message: 'Usuario o contraseña invalidos'});
     }
