@@ -33,3 +33,14 @@ export const getNegociosByUser = async (userId: number) => {
     }
     return negociosUsuario;
 }
+
+export const deleteNegocio = async (idNegocio: number) => {
+    const negocioEliminado = await negocios.destroy({
+        where: { ID_Negocio: idNegocio }
+    });
+
+    if (!negocioEliminado) {
+        return null;
+    }
+    return negocioEliminado;
+}

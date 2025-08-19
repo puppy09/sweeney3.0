@@ -46,3 +46,19 @@ export const getNegocios = async (req: Request, res: Response) => {
         return res.status(500).json({ message: "Error interno del servidor" });
     }
 }
+
+export const deleteNegocio = async (req: Request, res: Response) => {
+    try {
+        const { id_negocio } = req.params;
+        let auxNegocio = parseInt(id_negocio);
+        
+        const negocioEliminado = await negociosService.deleteNegocio(auxNegocio);
+        if (!negocioEliminado) {
+            return res.status(400).json({ message: "Error al eliminar el negocio" });
+        }
+        return res.status(200).json({ message: "Negocio eliminado exitosamente" });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: "Error interno del servidor" });
+    }
+}
