@@ -2,6 +2,7 @@ import { usuarios } from "./modelUsuarios.model";
 import { categorias } from "./modelCategorias.model";
 import { movimientos } from "./modelMovimientos.model";
 import { negocios } from "./modelNegocios.model";
+import { asociaciones } from "./modelAsociaciones.model";
 
 
 //Relaciones Categorias
@@ -49,4 +50,29 @@ negocios.belongsTo(usuarios,{
 
 usuarios.hasMany(negocios,{
     foreignKey: 'ID_Usuario'
+});
+
+//Relaciones Asociaciones - Usuario
+asociaciones.belongsTo(usuarios,{
+    foreignKey: 'ID_Usuario'
+});
+
+usuarios.hasMany(asociaciones,{
+    foreignKey: 'ID_Usuario'
+});
+
+//Relaciones Asociaciones - Categoria
+asociaciones.belongsTo(categorias,{
+    foreignKey: 'ID_Categoria'
+});
+categorias.hasMany(asociaciones,{
+    foreignKey: 'ID_Categoria'
+});
+
+//Relaciones Asociaciones - Negocio
+asociaciones.belongsTo(negocios,{
+    foreignKey: 'ID_Negocio'
+});
+negocios.hasMany(asociaciones,{
+    foreignKey: 'ID_Negocio'
 });

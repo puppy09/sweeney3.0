@@ -58,7 +58,7 @@ export const getCategorias = async (req: Request, res: Response) => {
     try {
         const userId = (req as any).user.id;
         const categoriasUsuario = await categoriasService.getCategoriasByUser(userId);
-        if (!categoriasUsuario || categoriasUsuario.length === 0) {
+        if (!categoriasUsuario) {
             return res.status(404).json({ message: "No se encontraron categorias para este usuario" });
         }
         return res.status(200).json({ categorias: categoriasUsuario });

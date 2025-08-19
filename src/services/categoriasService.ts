@@ -43,7 +43,7 @@ export const getCategoriasByUser = async(userId: number) => {
         where: { ID_Usuario: userId }
     });
 
-    if (!categoriasUsuario) {
+    if (!categoriasUsuario || categoriasUsuario.length === 0) {
         return null;
     }
     return categoriasUsuario;

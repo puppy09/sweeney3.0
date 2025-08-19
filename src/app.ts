@@ -10,6 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
 //console.log("Router cargado", router);
 app.use("/",router);
 

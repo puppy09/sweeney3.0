@@ -1,5 +1,10 @@
 import {Sequelize} from "sequelize";
 import dotenv from 'dotenv';
+import { usuarios } from '../models/modelUsuarios.model';
+import { categorias } from '../models/modelCategorias.model';
+import { movimientos } from '../models/modelMovimientos.model';
+import { negocios } from '../models/modelNegocios.model';
+import { asociaciones } from '../models/modelAsociaciones.model';
 dotenv.config();
 
 const sequelize = new Sequelize(
@@ -19,7 +24,7 @@ const checkConnection = async() => {
         console.log('COnecto');
 
          console.log("🔄 Sincronizando modelos...");
-        await sequelize.sync({ alter: false }); // Crea o actualiza tablas
+        await sequelize.sync({ alter: true }); // Crea o actualiza tablas
         console.log("✅ Modelos sincronizados");
     } catch(error){
         console.log('Error al conectar o sincronizar', error);
