@@ -37,3 +37,14 @@ export const removeCategoria = async(id_categoria: number) => {
     }
     return categoriaEliminada;
 }
+
+export const getCategoriasByUser = async(userId: number) => {
+    const categoriasUsuario = await categorias.findAll({
+        where: { ID_Usuario: userId }
+    });
+
+    if (!categoriasUsuario) {
+        return null;
+    }
+    return categoriasUsuario;
+}
