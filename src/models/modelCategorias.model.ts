@@ -6,9 +6,8 @@ interface categoriasAttributes{
     ID_Categoria: number,
     categoria:string,
     presupuesto: number,
-    estatus: string,
-    ID_Usuario: number,
-    FechaCreacion: Date
+    estatus: number,
+    ID_Usuario: number
 }
 
 
@@ -19,9 +18,8 @@ class categorias extends Model<categoriasAttributes, categoriasCreacionAttribute
     public ID_Categoria!: number;
     public categoria!:string;
     public presupuesto!: number;
-    public estatus!: string;
+    public estatus!: number;
     public ID_Usuario!: number;
-    public FechaCreacion!: Date;
 }
 
 categorias.init({
@@ -39,15 +37,11 @@ categorias.init({
         allowNull: false
     },
     estatus:{
-        type:DataTypes.STRING(50),
+        type:DataTypes.INTEGER.UNSIGNED,
         allowNull: false
     },
     ID_Usuario:{
         type:DataTypes.INTEGER.UNSIGNED,
-        allowNull:false
-    },
-    FechaCreacion:{
-        type:DataTypes.DATE,
         allowNull:false
     }
 
