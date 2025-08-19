@@ -26,3 +26,5 @@ export const updateCategoria = async(id_categoria: number, categoria: string, pr
     }
     return categoriaActualizada;
 }
+
+export const 
