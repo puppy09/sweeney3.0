@@ -1,4 +1,3 @@
-import { sequelize } from "../database/database";
 import { negocios } from "../models/modelNegocios.model";
 
 export const createNegocio = async (nombre: string, idUsuario: number) => {

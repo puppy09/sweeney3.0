@@ -3,6 +3,7 @@ import { login, registro } from "../controllers/authController";
 import { checkJWT } from "../middlewares/auth";
 import { deleteCategoria, getCategorias, postCategoria, putCategoria } from "../controllers/categoriasController";
 import { deleteNegocio, getNegocios, postNegocio, putNegocio } from "../controllers/negociosController";
+import { postAsociacion } from "../controllers/asociacionesController";
 
 const router = Router();
 
@@ -21,5 +22,8 @@ router.post("/add/negocio", checkJWT, postNegocio);
 router.put("/upd/negocio/:id_negocio", checkJWT, putNegocio);
 router.get("/get/negocios", checkJWT, getNegocios);
 router.delete("/del/negocio/:id_negocio", checkJWT, deleteNegocio);
+
+//Rutas de Asociaciones
+router.post("/add/asociacion", checkJWT, postAsociacion);
 
 export { router };
