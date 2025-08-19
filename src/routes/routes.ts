@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { login, registro } from "../controllers/authController";
 import { checkJWT } from "../middlewares/auth";
-import { postCategoria, putCategoria } from "../controllers/categoriasController";
+import { deleteCategoria, postCategoria, putCategoria } from "../controllers/categoriasController";
 
 const router = Router();
 
@@ -12,5 +12,6 @@ router.post("/auth/registro", registro);
 //Rutas de Categorias
 router.post("/add/categoria",checkJWT, postCategoria);
 router.put("/upd/categoria/:id_categoria",checkJWT, putCategoria);
+router.delete("/del/categoria/:id_categoria", checkJWT, deleteCategoria);
 
 export { router };

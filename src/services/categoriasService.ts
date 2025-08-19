@@ -27,4 +27,13 @@ export const updateCategoria = async(id_categoria: number, categoria: string, pr
     return categoriaActualizada;
 }
 
-export const 
+export const removeCategoria = async(id_categoria: number) => {
+    const categoriaEliminada = await categorias.destroy({
+        where: { ID_Categoria: id_categoria }
+    });
+
+    if (!categoriaEliminada) {
+        return null;
+    }
+    return categoriaEliminada;
+}

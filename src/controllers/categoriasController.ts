@@ -22,7 +22,6 @@ export const postCategoria = async (req: Request, res: Response) => {
 
 export const putCategoria = async (req: Request, res: Response) => {
     try {
-        const userId = (req as any).user.id;
         const {categoria, presupuesto, estatus} = req.body;
         const {id_categoria} = req.params;
 
@@ -33,6 +32,22 @@ export const putCategoria = async (req: Request, res: Response) => {
             return res.status(400).json({ message: "Error al actualizar la categoria" });
         }
         return res.status(200).json({ message: "Categoria actualizada exitosamente", updCat });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: "Error interno del servidor" });
+    }
+}
+
+export const deleteCategoria = async (req: Request, res: Response) => {
+    try {
+        const {id_categoria} = req.params;
+        let auxcat = parseInt(id_categoria);
+        
+        const categoriaEliminada = await categoriasService.removeCategoria(auxcat);
+        if (!categoriaEliminada) {
+            return res.status(400).json({ message: "Error al eliminar la categoria" });
+        }
+        return res.status(200).json({ message: "Categoria eliminada exitosamente" });
     } catch (error) {
         console.error(error);
         return res.status(500).json({ message: "Error interno del servidor" });
