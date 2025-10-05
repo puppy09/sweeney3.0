@@ -13,6 +13,7 @@ const sequelize = new Sequelize(
     process.env.DB_PASS as string,{
         host: 'localhost',
         dialect: 'mysql',
+        timezone: '-07:00',
         logging: console.log
     }
 )
