@@ -25,5 +25,8 @@ router.delete("/del/negocio/:id_negocio", checkJWT, deleteNegocio);
 
 //Rutas de Asociaciones
 router.post("/add/asociacion", checkJWT, postAsociacion);
+router.get("/get/asociaciones", checkJWT, postAsociacion);
+router.delete("/del/asociacion/:id_asociacion", checkJWT, postAsociacion);
+router.put("/upd/asociacion/:id_asociacion", checkJWT, postAsociacion);
 
 export { router };
